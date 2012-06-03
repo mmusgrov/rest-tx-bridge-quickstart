@@ -57,6 +57,7 @@ public class TaskResourceTest {
                 .addAsLibraries(resolver.artifact("org.jboss.jbossts:rest-tx-bridge:1.0-SNAPSHOT").resolveAsFiles())
                 .addAsLibraries(resolver.artifact("org.jboss.narayana.rts:restat-util:5.0.0.M2-SNAPSHOT").resolveAsFiles());
 
+        System.out.println(archive.toString(true));
         return archive;
     }
 
