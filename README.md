@@ -24,13 +24,15 @@ In order to execute quickstart please follow these steps:
 
 2. Make sure that "org.jboss.narayana.rts:restat-util:5.0.0.M2-SNAPSHOT" artifact is in your local Maven repository (comes from 1 step).
 
-3. Enter correct jbossHome values in Arquillian configuration files
+3. Download rest-tx-bridge and store it in your local Maven repository (user: mvn clean install)
+
+4. Enter correct jbossHome values in Arquillian configuration files
   * combined/src/test/resources/arquillian.xml
   * jms/src/test/resources/arquillian.xml
   * jpa/src/test/resources/arquillian.xml
 		
-4. Go to the root directory of the quickstart and execute following command.
+5. Go to the root directory of the quickstart and execute following command.
 
         mvn clean install
 
-5. Arquillian test will be executed and output will be printed to the console.
+6. Arquillian test will be executed and output will be printed to the console.
