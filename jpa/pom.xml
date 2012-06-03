@@ -20,9 +20,6 @@
   <name>RESTful Atomic Transaction Bridge Quickstart: JPA</name>
   <description>Basic example how to use JPA within RESTful transaction</description>
 
-  <!-- <dependencyManagement> <dependencies> <dependency> <groupId>org.jboss.bom</groupId> <artifactId>jboss-javaee-6.0-with-hibernate</artifactId> 
-    <version>${jboss.bom.version}</version> <type>pom</type> <scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
-
   <dependencies>
     <!-- Import the EJB API, we use provided scope as the API is included in JBoss AS 7 -->
     <dependency>
