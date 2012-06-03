@@ -14,10 +14,6 @@
         <entry name="java:jboss/exported/jms/queue/resttx" />
         <durable>false</durable>
       </jms-queue>
-      <!-- <jms-topic name="restTxBridgeQuickstartJmsQueue">
-        <entry name="topic/resttx" />
-        <entry name="java:jboss/exported/jms/topic/resttx" />
-      </jms-topic> -->
     </jms-destinations>
   </hornetq-server>
 </messaging-deployment>
