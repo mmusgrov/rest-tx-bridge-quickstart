@@ -16,8 +16,6 @@ import org.jboss.resteasy.spi.Link;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.StringAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.jboss.shrinkwrap.resolver.api.DependencyResolvers;
-import org.jboss.shrinkwrap.resolver.api.maven.MavenDependencyResolver;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,7 +28,7 @@ import org.junit.runner.RunWith;
 @RunWith(Arquillian.class)
 public class TaskResourceTest {
 
-    private static final String ManifestMF = "Manifest-Version: 1.0\n" + "Dependencies: org.jboss.jts\n";
+    private static final String ManifestMF = "Manifest-Version: 1.0\n" + "Dependencies: org.jboss.rts, org.codehaus.jettison\n";
 
     public static final String TXN_MGR_URL = "http://localhost:8080/rest-tx/tx/transaction-manager";
 
@@ -44,18 +42,12 @@ public class TaskResourceTest {
 
     @Deployment
     public static WebArchive createDeployment() {
-        MavenDependencyResolver resolver = DependencyResolvers.use(MavenDependencyResolver.class)
-                .loadMetadataFromPom("pom.xml");
-
         WebArchive archive = ShrinkWrap.create(WebArchive.class, "rest-tx-bridge-quickstart-jpa-test.war")
                 .addAsResource(new File("src/main/resources", "META-INF/persistence.xml"), "META-INF/persistence.xml")
                 .addAsWebInfResource(new File("src/main/webapp", "WEB-INF/rest-tx-bridge-quickstart-jpa-ds.xml"))
                 .addAsWebInfResource(new File("src/main/webapp", "WEB-INF/beans.xml"))
                 .addAsWebInfResource(new File("src/main/webapp", "WEB-INF/web.xml"))
-                .addPackages(true, "org.jboss.jbossts.resttxbridge.quickstart.jpa").setManifest(new StringAsset(ManifestMF))
-                .addAsLibraries(resolver.artifact("org.codehaus.jettison:jettison:1.3.1").resolveAsFiles())
-                .addAsLibraries(resolver.artifact("org.jboss.jbossts:rest-tx-bridge:1.0-SNAPSHOT").resolveAsFiles())
-                .addAsLibraries(resolver.artifact("org.jboss.narayana.rts:restat-util:5.0.0.M2-SNAPSHOT").resolveAsFiles());
+                .addPackages(true, "org.jboss.jbossts.resttxbridge.quickstart.jpa").setManifest(new StringAsset(ManifestMF));
 
         System.out.println(archive.toString(true));
         return archive;

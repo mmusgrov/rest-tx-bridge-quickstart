@@ -70,7 +70,7 @@
           <failOnMissingWebXml>false</failOnMissingWebXml>
           <archive>
             <manifestEntries>
-              <Dependencies>org.jboss.jts</Dependencies>
+              <Dependencies>org.jboss.rts, org.codehaus.jettison</Dependencies>
             </manifestEntries>
           </archive>
         </configuration>
@@ -111,6 +111,7 @@
       <groupId>org.jboss.jbossts</groupId>
       <artifactId>rest-tx-bridge</artifactId>
       <version>1.0-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
 
     <!-- Rest-tx utils -->
@@ -118,6 +119,7 @@
       <groupId>org.jboss.narayana.rts</groupId>
       <artifactId>restat-util</artifactId>
       <version>5.0.0.M2-SNAPSHOT</version>
+      <scope>provided</scope>
     </dependency>
 
     <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 -->
